@@ -70,7 +70,7 @@ describe('toGroqRequestBody', () => {
   it('should convert GenerateRequest to Groq request body', () => {
     const expectedOutput: ChatCompletionCreateParamsBase = {
       messages: [{ role: 'user', content: 'Tell a joke about dogs.' }],
-      model: 'llama3-8b-8192', // Match model name format in SUPPORTED_GROQ_MODELS
+      model: 'llama-3.1-8b-instant', // Match model name format in SUPPORTED_GROQ_MODELS
       temperature: 0.7,
       max_tokens: 100,
       top_p: 0.9,
@@ -83,7 +83,7 @@ describe('toGroqRequestBody', () => {
       response_format: { type: 'text' },
     };
 
-    const actualOutput = toGroqRequestBody('llama-3-8b', request);
+    const actualOutput = toGroqRequestBody('llama-3.1-8b-instant', request);
     console.log(`actualOutput.stop: ${actualOutput.stop}`);
     assert.deepStrictEqual(
       JSON.parse(JSON.stringify(actualOutput)), // Remove undefined fields

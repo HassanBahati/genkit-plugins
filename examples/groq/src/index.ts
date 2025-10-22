@@ -16,13 +16,13 @@
 
 import dotenv from 'dotenv';
 import { genkit, z } from 'genkit';
-import { groq, gemma2x9b } from 'genkitx-groq';
+import { groq, llama31x8bInstant } from 'genkitx-groq';
 
 dotenv.config();
 
 const ai = genkit({
   plugins: [groq({ apiKey: process.env.GROQ_API_KEY })],
-  model: gemma2x9b,
+  model: llama31x8bInstant,
 });
 
 // genkit flow:run jokeFlow \"chicken\"

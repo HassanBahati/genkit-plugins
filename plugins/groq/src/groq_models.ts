@@ -56,24 +56,6 @@ export const GroqConfigSchema = GenerationCommonConfigSchema.extend({
   //     .optional(),
 });
 
-// Worst at JSON mode
-export const llama3x8b = modelRef({
-  name: 'groq/llama-3-8b',
-  info: {
-    versions: ['llama3-8b-8192'],
-    label: 'Llama 3 8B',
-    supports: {
-      multiturn: true,
-      tools: false, // Could be true but not recommended
-      media: false,
-      systemRole: true,
-      output: ['text', 'json'], // JSON mode does not support streaming or stop sequences
-    },
-  },
-  configSchema: GroqConfigSchema,
-  version: 'llama3-8b-8192',
-});
-
 export const llama4Maverick17b = modelRef({
   name: 'groq/meta-llama/llama-4-maverick-17b-128e-instruct',
   info: {
@@ -106,23 +88,6 @@ export const llama4MScout17b = modelRef({
   },
   configSchema: GroqConfigSchema,
   version: 'meta-llama/llama-4-scout-17b-16e-instruct',
-});
-
-export const llamaGuard3x8b = modelRef({
-  name: 'groq/llama-guard-3-8b',
-  info: {
-    versions: ['llama-guard-3-8b'],
-    label: 'Llama Guard 3 8B',
-    supports: {
-      multiturn: true,
-      tools: false, // Could be true but not recommended
-      media: false,
-      systemRole: true,
-      output: ['text', 'json'], // JSON mode does not support streaming or stop sequences
-    },
-  },
-  configSchema: GroqConfigSchema,
-  version: 'llama-guard-3-8b',
 });
 
 export const llama33x70bVersatile = modelRef({
@@ -159,78 +124,6 @@ export const llama31x8bInstant = modelRef({
   version: 'llama-3.1-8b-instant',
 });
 
-// Worst at JSON mode
-// Only model recommended for Tool Use
-export const llama3x70b = modelRef({
-  name: 'groq/llama-3-70b',
-  info: {
-    versions: ['llama3-70b-8192'],
-    label: 'Llama 3 70B',
-    supports: {
-      multiturn: true,
-      tools: true,
-      media: false,
-      systemRole: true,
-      output: ['text', 'json'], // JSON mode does not support streaming or stop sequences
-    },
-  },
-  configSchema: GroqConfigSchema,
-  version: 'llama3-70b-8192',
-});
-
-// Best at JSON mode
-export const mistralSaba = modelRef({
-  name: 'groq/mistral-saba-24b',
-  info: {
-    versions: ['mistral-saba-24b'],
-    label: 'Mistral Saba 24B',
-    supports: {
-      multiturn: true,
-      tools: false,
-      media: false,
-      systemRole: true,
-      output: ['text', 'json'], // JSON mode does not support streaming or stop sequences
-    },
-  },
-  configSchema: GroqConfigSchema,
-  version: 'mistral-saba-24b',
-});
-
-// Runner up at JSON mode
-export const gemma2x9b = modelRef({
-  name: 'groq/gemma2-9b',
-  info: {
-    versions: ['gemma2-9b-it'],
-    label: 'Gemma 2 9B',
-    supports: {
-      multiturn: true,
-      tools: false,
-      media: false,
-      systemRole: true,
-      output: ['text', 'json'], // JSON mode does not support streaming or stop sequences
-    },
-  },
-  configSchema: GroqConfigSchema,
-  version: 'gemma2-9b-it',
-});
-
-export const qwenqwqx32b = modelRef({
-  name: 'groq/qwen-qwq-32b',
-  info: {
-    versions: ['qwen-qwq-32b'],
-    label: 'Qwen qwq 32B',
-    supports: {
-      multiturn: true,
-      tools: true,
-      media: false,
-      systemRole: true,
-      output: ['text', 'json'], // JSON mode does not support streaming or stop sequences
-    },
-  },
-  configSchema: GroqConfigSchema,
-  version: 'qwen-qwq-32b',
-});
-
 export const allam2x7b = modelRef({
   name: 'groq/allam-2-7b',
   info: {
@@ -248,35 +141,11 @@ export const allam2x7b = modelRef({
   version: 'allam-2-7b',
 });
 
-export const deepseekR1DistillLlamax70b = modelRef({
-  name: 'groq/deepseek-r1-distill-llama-70b',
-  info: {
-    versions: ['deepseek-r1-distill-llama-70b'],
-    label: 'Deepseek R1 Distill Llama 70B',
-    supports: {
-      multiturn: true,
-      tools: true,
-      media: false,
-      systemRole: true,
-      output: ['text', 'json'], // JSON mode does not support streaming or stop sequences
-    },
-  },
-  configSchema: GroqConfigSchema,
-  version: 'deepseek-r1-distill-llama-70b',
-});
-
 export const SUPPORTED_GROQ_MODELS = {
-  'llama-3-8b': llama3x8b,
-  'llama-3-70b': llama3x70b,
-  'llama-guard-3-8b': llamaGuard3x8b,
   'llama-3.3-70b-versatile': llama33x70bVersatile,
   'llama-3.1-8b-instant': llama31x8bInstant,
   'meta-llama/llama-4-maverick-17b-128e-instruct': llama4Maverick17b,
   'meta-llama/llama-4-scout-17b-16e-instruct': llama4MScout17b,
-  'mistral-saba-24b': mistralSaba,
-  'gemma2-9b': gemma2x9b,
-  'qwen-qwq-32b': qwenqwqx32b,
-  'deepseek-r1-distill-llama-70b': deepseekR1DistillLlamax70b,
   'allam-2-7b': allam2x7b,
 };
 
